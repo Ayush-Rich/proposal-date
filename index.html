@@ -1,128 +1,261 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Sagar Verma Coaching</title>
-
-  <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-
-  <!-- Animation Library -->
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sagar Verma Coaching Institute</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .bg-education {
+            background-image: linear-gradient(rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.85)), url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=2070&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        .cursor-blink { animation: blink 1s step-end infinite; }
+        @keyframes blink { 50% { opacity: 0; } }
+        html { scroll-behavior: smooth; }
+    </style>
 </head>
+<body class="bg-gray-50 text-gray-800 font-sans antialiased">
 
-<body class="bg-gray-100">
+    <nav class="bg-white shadow-md fixed w-full z-50 top-0">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <div class="flex-shrink-0 font-extrabold text-2xl text-blue-700 tracking-wide">
+                    <i class="fa-solid fa-graduation-cap mr-2"></i>SAGAR CLASSES
+                </div>
+                
+                <div class="hidden md:flex space-x-6 items-center">
+                    <a href="#home" class="text-gray-700 hover:text-blue-600 font-semibold transition">Home</a>
+                    <a href="#opening" class="text-gray-700 hover:text-blue-600 font-semibold transition">Grand Opening</a>
+                    <a href="#fees" class="text-gray-700 hover:text-blue-600 font-semibold transition">Fee Structure</a>
+                    <a href="#contact" class="bg-blue-600 text-white px-5 py-2 rounded-full font-bold hover:bg-blue-700 shadow-md transition">Contact Us</a>
+                </div>
 
-<!-- HERO -->
-<section class="h-screen bg-cover bg-center flex items-center justify-center text-center text-white"
-style="background-image: url('https://images.unsplash.com/photo-1503676260728-1c00da094a0b');">
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-gray-700 hover:text-blue-600 focus:outline-none text-2xl">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
 
-  <div class="bg-black/60 p-10 rounded-xl" data-aos="zoom-in">
-    <h1 class="text-5xl font-bold mb-4">Sagar Verma Coaching</h1>
-    <p class="text-lg mb-6">
-      "We don't just teach, we transform results.  
-      Boost your child's marks, rank & confidence."
-    </p>
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 shadow-lg absolute w-full">
+            <div class="px-4 pt-2 pb-6 space-y-2 text-center">
+                <a href="#home" class="block px-3 py-3 text-gray-800 font-bold hover:bg-blue-50 rounded-md">Home</a>
+                <a href="#opening" class="block px-3 py-3 text-gray-800 font-bold hover:bg-blue-50 rounded-md">Grand Opening</a>
+                <a href="#fees" class="block px-3 py-3 text-gray-800 font-bold hover:bg-blue-50 rounded-md">Fee Structure</a>
+                <a href="#contact" class="block px-3 py-3 bg-blue-600 text-white font-bold rounded-md mx-4 mt-4">Contact Us</a>
+            </div>
+        </div>
+    </nav>
 
-    <button onclick="scrollToSection()" 
-      class="bg-orange-500 px-6 py-3 rounded-lg text-lg hover:bg-orange-600">
-      Join Now
-    </button>
-  </div>
-</section>
+    <section id="home" class="bg-education min-h-screen flex items-center justify-center text-center px-4 pt-20">
+        <div class="max-w-4xl text-white w-full">
+            <p class="text-yellow-400 font-bold tracking-widest uppercase mb-3 text-sm md:text-base">Welcome to</p>
+            <h1 class="text-5xl md:text-7xl font-extrabold mb-6 tracking-tight drop-shadow-lg">
+                Sagar Verma <br> <span class="text-blue-400 text-4xl md:text-6xl">Coaching Institute</span>
+            </h1>
+            <h2 class="text-2xl md:text-4xl font-bold mb-6 h-12 md:h-16">
+                Committed to <br class="md:hidden">
+                <span id="dynamic-text" class="text-yellow-400"></span><span class="cursor-blink text-yellow-400">|</span>
+            </h2>
+            <p class="text-base md:text-xl font-light mb-10 max-w-2xl mx-auto text-gray-200 px-2 leading-relaxed">
+                Education here goes beyond merely completing the syllabus. We focus on building strong foundational concepts to ensure significant improvements in both ranks and academic scores. Experience comprehensive learning with a specialized focus on all core subjects.
+            </p>
+            <a href="#opening" class="bg-yellow-400 text-gray-900 px-8 py-4 rounded-full text-lg font-bold shadow-xl hover:bg-yellow-300 transition transform hover:-translate-y-1 inline-block">
+                Discover Excellence <i class="fa-solid fa-arrow-down ml-2"></i>
+            </a>
+        </div>
+    </section>
 
-<!-- FEATURES -->
-<section class="py-16 text-center bg-white">
-  <h2 class="text-3xl font-bold mb-10" data-aos="fade-up">Why Choose Us?</h2>
+    <section id="opening" class="py-16 md:py-24 bg-gradient-to-br from-blue-700 via-blue-600 to-indigo-800 text-white text-center px-4 relative overflow-hidden">
+        <div class="absolute top-0 left-0 w-32 h-32 bg-white opacity-5 rounded-full -translate-x-10 -translate-y-10"></div>
+        <div class="absolute bottom-0 right-0 w-48 h-48 bg-white opacity-5 rounded-full translate-x-10 translate-y-10"></div>
+        
+        <div class="max-w-4xl mx-auto relative z-10">
+            <div class="inline-block p-5 rounded-full bg-white text-blue-600 mb-6 shadow-2xl transform hover:scale-110 transition duration-300">
+                <i class="fa-solid fa-champagne-glasses text-5xl"></i>
+            </div>
+            <h2 class="text-4xl md:text-5xl font-extrabold mb-4 drop-shadow-md">Grand Inauguration Ceremony</h2>
+            <div class="bg-white/20 backdrop-blur-sm rounded-2xl p-6 md:p-8 my-8 border border-white/30">
+                <p class="text-3xl md:text-4xl font-bold text-yellow-300 mb-2">April 1st, 2026</p>
+                <p class="text-lg md:text-xl text-blue-50">Mark your calendars for the beginning of a new educational era.</p>
+            </div>
+            <p class="text-lg md:text-2xl mb-8 px-4 leading-relaxed">
+                You are cordially invited to grace the occasion with your presence. Join us as we embark on this transformative journey. Empowering your child's future is our utmost priority and responsibility.
+            </p>
+            <span class="font-bold text-xl md:text-2xl text-gray-900 bg-yellow-400 px-8 py-3 rounded-full shadow-lg inline-block">
+                Everyone is Welcome!
+            </span>
+        </div>
+    </section>
 
-  <div class="grid md:grid-cols-3 gap-8 px-10">
-    <div class="p-6 shadow-lg rounded-lg" data-aos="fade-right">
-      <h3 class="text-xl font-semibold">Personal Attention</h3>
-      <p>Every student gets individual focus for better understanding.</p>
-    </div>
+    <section id="fees" class="py-16 md:py-24 px-4 bg-gray-50">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-5xl font-extrabold text-gray-900 mb-4">Transparent Fee Structure</h2>
+                <div class="w-24 h-1 bg-blue-600 mx-auto mb-4"></div>
+                <p class="text-gray-600 max-w-2xl mx-auto text-lg">Premium quality education that delivers measurable results, structured thoughtfully for exceptional value.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8 md:gap-10 items-center">
+                <div class="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition duration-300 overflow-hidden border border-gray-100">
+                    <div class="bg-gray-800 text-white text-center py-6">
+                        <h3 class="text-2xl font-bold">Class 9th & 10th</h3>
+                    </div>
+                    <div class="p-8 text-center">
+                        <p class="text-4xl font-extrabold text-gray-900 mb-2">₹1,500<span class="text-lg text-gray-500 font-normal">/mo</span></p>
+                        <ul class="text-gray-600 text-left mt-8 space-y-4">
+                            <li class="flex items-center"><i class="fa-solid fa-circle-check text-green-500 mr-3 text-xl"></i> Comprehensive Core Subjects</li>
+                            <li class="flex items-center"><i class="fa-solid fa-circle-check text-green-500 mr-3 text-xl"></i> Weekly Performance Assessments</li>
+                            <li class="flex items-center"><i class="fa-solid fa-circle-check text-green-500 mr-3 text-xl"></i> Foundational Skill Building</li>
+                        </ul>
+                    </div>
+                </div>
 
-    <div class="p-6 shadow-lg rounded-lg" data-aos="fade-up">
-      <h3 class="text-xl font-semibold">Weekly Tests</h3>
-      <p>Regular tests to track performance & improvement.</p>
-    </div>
+                <div class="bg-white rounded-2xl shadow-2xl transition duration-300 overflow-hidden border-4 border-blue-600 relative transform md:-translate-y-4 z-10">
+                    <div class="absolute top-0 right-0 bg-yellow-400 text-gray-900 px-4 py-1 rounded-bl-xl font-bold text-sm tracking-wider uppercase">Most Recommended</div>
+                    <div class="bg-blue-600 text-white text-center py-8">
+                        <h3 class="text-3xl font-bold">Class 11th & 12th</h3>
+                    </div>
+                    <div class="p-8 text-center bg-blue-50">
+                        <p class="text-5xl font-extrabold text-blue-700 mb-2">₹2,500<span class="text-lg text-gray-500 font-normal">/mo</span></p>
+                        <ul class="text-gray-700 text-left mt-8 space-y-4 font-medium">
+                            <li class="flex items-center"><i class="fa-solid fa-circle-check text-blue-600 mr-3 text-xl"></i> Physics, Chemistry, Maths/Bio</li>
+                            <li class="flex items-center"><i class="fa-solid fa-circle-check text-blue-600 mr-3 text-xl"></i> Advanced Board Exam Strategies</li>
+                            <li class="flex items-center"><i class="fa-solid fa-circle-check text-blue-600 mr-3 text-xl"></i> Dedicated Doubt Resolution</li>
+                        </ul>
+                    </div>
+                </div>
 
-    <div class="p-6 shadow-lg rounded-lg" data-aos="fade-left">
-      <h3 class="text-xl font-semibold">Result Guarantee</h3>
-      <p>We ensure noticeable improvement in marks & rank.</p>
-    </div>
-  </div>
-</section>
+                <div class="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition duration-300 overflow-hidden border border-gray-100">
+                    <div class="bg-gray-800 text-white text-center py-6">
+                        <h3 class="text-2xl font-bold">Intensive Crash Course</h3>
+                    </div>
+                    <div class="p-8 text-center">
+                        <p class="text-4xl font-extrabold text-gray-900 mb-2">₹5,000<span class="text-lg text-gray-500 font-normal">/full</span></p>
+                        <ul class="text-gray-600 text-left mt-8 space-y-4">
+                            <li class="flex items-center"><i class="fa-solid fa-circle-check text-green-500 mr-3 text-xl"></i> 3-Month Rigorous Training</li>
+                            <li class="flex items-center"><i class="fa-solid fa-circle-check text-green-500 mr-3 text-xl"></i> Past Papers Analytical Review</li>
+                            <li class="flex items-center"><i class="fa-solid fa-circle-check text-green-500 mr-3 text-xl"></i> Assured Performance Enhancement</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<!-- FEES -->
-<section id="fees" class="py-16 bg-gray-200 text-center">
-  <h2 class="text-3xl font-bold mb-8" data-aos="fade-up">Fees Structure</h2>
+    <section id="contact" class="py-16 md:py-24 bg-white px-4 border-t border-gray-100">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-5xl font-extrabold text-gray-900 mb-4">Connect With Us</h2>
+                <div class="w-24 h-1 bg-blue-600 mx-auto"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12 bg-gray-50 p-6 md:p-10 rounded-3xl shadow-lg border border-gray-100">
+                <div class="space-y-8 flex flex-col justify-center">
+                    <div class="flex items-start group">
+                        <div class="bg-blue-100 p-4 rounded-full text-blue-600 mr-5 group-hover:bg-blue-600 group-hover:text-white transition duration-300">
+                            <i class="fa-solid fa-user-tie text-2xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-900 text-xl">Managing Director</h4>
+                            <p class="text-gray-600 text-lg mt-1">Mr. Sagar Verma</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start group">
+                        <div class="bg-blue-100 p-4 rounded-full text-blue-600 mr-5 group-hover:bg-blue-600 group-hover:text-white transition duration-300">
+                            <i class="fa-solid fa-phone text-2xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-900 text-xl">Admissions Inquiry</h4>
+                            <p class="text-gray-600 text-lg mt-1">+91 98765 43210</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start group">
+                        <div class="bg-blue-100 p-4 rounded-full text-blue-600 mr-5 group-hover:bg-blue-600 group-hover:text-white transition duration-300">
+                            <i class="fa-solid fa-location-dot text-2xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-900 text-xl">Institute Campus</h4>
+                            <p class="text-gray-600 text-lg mt-1">Main Market, Chirgaon, Uttar Pradesh - 284301</p>
+                        </div>
+                    </div>
+                </div>
 
-  <div class="max-w-xl mx-auto bg-white shadow-lg rounded-lg p-6" data-aos="zoom-in">
-    <table class="w-full">
-      <tr class="border-b">
-        <th class="p-3">Class</th>
-        <th class="p-3">Fees</th>
-      </tr>
-      <tr class="border-b">
-        <td class="p-3">6-8</td>
-        <td class="p-3">₹800</td>
-      </tr>
-      <tr class="border-b">
-        <td class="p-3">9-10</td>
-        <td class="p-3">₹1200</td>
-      </tr>
-      <tr>
-        <td class="p-3">11-12</td>
-        <td class="p-3">₹1500</td>
-      </tr>
-    </table>
-  </div>
-</section>
+                <div class="rounded-2xl overflow-hidden shadow-md h-64 md:h-96 border-4 border-white">
+                    <iframe src="http://googleusercontent.com/maps.google.com/2" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<!-- CONTACT -->
-<section class="py-16 bg-white text-center">
-  <h2 class="text-3xl font-bold mb-6" data-aos="fade-up">Contact Us</h2>
+    <footer class="bg-gray-900 text-gray-400 py-10 text-center">
+        <div class="text-2xl font-bold text-white mb-4"><i class="fa-solid fa-graduation-cap mr-2"></i>SAGAR CLASSES</div>
+        <p>© 2026 Sagar Verma Coaching Institute. All rights reserved.</p>
+    </footer>
 
-  <p><strong>Name:</strong> Sagar Verma</p>
-  <p><strong>Phone:</strong> 9876543210</p>
-  <p><strong>Address:</strong> Your Coaching Address</p>
+    <script>
+        // 1. Dynamic Typing Effect (Professional Wording)
+        const words = ["Academic Excellence", "Mastering Core Concepts", "Securing Top Ranks", "Holistic Development"];
+        let i = 0;
+        let timer;
+        
+        function typingEffect() {
+            let word = words[i].split("");
+            var loopTyping = function() {
+                if (word.length > 0) {
+                    document.getElementById('dynamic-text').innerHTML += word.shift();
+                } else {
+                    setTimeout(deletingEffect, 2000);
+                    return false;
+                };
+                timer = setTimeout(loopTyping, 100);
+            };
+            loopTyping();
+        }
 
-  <div class="mt-6" data-aos="zoom-in">
-    <iframe 
-      class="w-full h-72 rounded-lg"
-      src="https://maps.google.com/maps?q=bhopal&t=&z=13&ie=UTF8&iwloc=&output=embed">
-    </iframe>
-  </div>
-</section>
+        function deletingEffect() {
+            let word = words[i].split("");
+            var loopDeleting = function() {
+                if (word.length > 0) {
+                    word.pop();
+                    document.getElementById('dynamic-text').innerHTML = word.join("");
+                } else {
+                    if (words.length > (i + 1)) {
+                        i++;
+                    } else {
+                        i = 0;
+                    };
+                    typingEffect();
+                    return false;
+                };
+                timer = setTimeout(loopDeleting, 50);
+            };
+            loopDeleting();
+        }
 
-<!-- OPENING -->
-<section class="py-16 bg-orange-500 text-white text-center">
-  <h2 class="text-4xl font-bold mb-4" data-aos="fade-up">Grand Opening 🎉</h2>
+        // Start Typing Effect
+        typingEffect();
 
-  <p class="text-lg" data-aos="fade-up">
-    Starting from <strong>1st April</strong>
-  </p>
+        // 2. Mobile Menu Toggle Script
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
 
-  <p class="mt-4" data-aos="fade-up">
-    You are warmly invited to join and give your child a bright future.
-  </p>
-</section>
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
 
-<!-- FOOTER -->
-<footer class="bg-black text-white text-center p-4">
-  © 2026 Sagar Verma Coaching Classes
-</footer>
-
-<!-- JS -->
-<script>
-  AOS.init();
-
-  function scrollToSection() {
-    document.getElementById("fees").scrollIntoView({ behavior: "smooth" });
-  }
-</script>
-
+        // Close mobile menu when a link is clicked
+        const mobileLinks = menu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.add('hidden');
+            });
+        });
+    </script>
 </body>
 </html>
