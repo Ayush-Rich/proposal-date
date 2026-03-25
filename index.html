@@ -1,297 +1,128 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ayush Rich | Elite Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Syncopate:wght@700&family=Space+Grotesk:wght@300;500;700&display=swap" rel="stylesheet">
-    
-    <style>
-        :root {
-            --primary: #6366f1;
-            --accent: #ff0055;
-            --bg-img: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072');
-        }
+  <meta charset="UTF-8">
+  <title>Sagar Verma Coaching</title>
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        
-        body { 
-            background: #000; 
-            color: #fff; 
-            font-family: 'Space Grotesk', sans-serif;
-            overflow: hidden;
-            height: 100vh;
-        }
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
 
-        /* --- GENERATIVE BACKGROUND --- */
-        #dynamic-bg {
-            position: fixed;
-            inset: 0;
-            background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.9)), var(--bg-img);
-            background-size: cover;
-            background-position: center;
-            z-index: -2;
-            transition: all 1s cubic-bezier(0.4, 0, 0.2, 1);
-            transform: scale(1.1);
-        }
+  <!-- Animation Library -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
-        .scanline {
-            position: fixed;
-            inset: 0;
-            background: linear-gradient(to bottom, transparent 50%, rgba(0,0,0,0.5) 51%);
-            background-size: 100% 4px;
-            z-index: -1;
-            pointer-events: none;
-            opacity: 0.1;
-        }
-
-        /* --- HOME INTERFACE --- */
-        #home-screen {
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            transition: 0.8s;
-        }
-
-        .name-wrapper {
-            text-align: center;
-            margin-bottom: 60px;
-        }
-
-        .main-name {
-            font-family: 'Syncopate', sans-serif;
-            font-size: clamp(3rem, 12vw, 8rem);
-            line-height: 0.8;
-            letter-spacing: -5px;
-            text-transform: uppercase;
-            background: linear-gradient(to bottom, #fff, #444);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 10px;
-        }
-
-        /* --- ROADMAP CAROUSEL NAV --- */
-        .roadmap-nav {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            position: relative;
-        }
-
-        .roadmap-line {
-            position: absolute;
-            top: 50%; left: 10%; width: 80%;
-            height: 1px; background: rgba(255,255,255,0.1);
-            z-index: -1;
-        }
-
-        .node {
-            width: clamp(80px, 20vw, 150px);
-            padding: 15px;
-            background: rgba(255,255,255,0.05);
-            border: 1px solid rgba(255,255,255,0.1);
-            backdrop-filter: blur(10px);
-            border-radius: 50px;
-            cursor: pointer;
-            text-align: center;
-            transition: 0.5s;
-        }
-
-        .node.active {
-            background: var(--primary);
-            border-color: #fff;
-            transform: translateY(-10px);
-            box-shadow: 0 10px 40px var(--primary);
-        }
-
-        .node span { font-weight: 700; font-size: 0.8rem; letter-spacing: 2px; }
-
-        /* --- DEEP DIVE VIEW --- */
-        #deep-dive {
-            position: fixed;
-            inset: 0;
-            background: rgba(0,0,0,0.95);
-            display: none;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            z-index: 100;
-            padding: 40px;
-            clip-path: circle(0% at 50% 50%);
-            transition: 0.8s ease-in-out;
-        }
-
-        #deep-dive.active {
-            display: flex;
-            clip-path: circle(150% at 50% 50%);
-        }
-
-        .content-card {
-            max-width: 900px;
-            width: 100%;
-        }
-
-        .content-card h1 {
-            font-family: 'Syncopate', sans-serif;
-            font-size: clamp(2rem, 8vw, 5rem);
-            color: var(--primary);
-            margin-bottom: 30px;
-        }
-
-        .points-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-        }
-
-        .point-box {
-            background: rgba(255,255,255,0.03);
-            border: 1px solid rgba(255,255,255,0.1);
-            padding: 30px;
-            border-radius: 20px;
-            transition: 0.4s;
-        }
-
-        .point-box:hover { background: rgba(255,255,255,0.08); border-color: var(--primary); }
-        .point-box h3 { margin-bottom: 10px; color: var(--primary); }
-        .point-box p { font-weight: 300; line-height: 1.6; color: #ccc; }
-
-        .btn-close {
-            margin-top: 50px;
-            padding: 15px 40px;
-            background: transparent;
-            border: 1px solid #fff;
-            color: #fff;
-            border-radius: 50px;
-            cursor: pointer;
-            font-family: 'Syncopate', sans-serif;
-            font-size: 0.7rem;
-            transition: 0.3s;
-        }
-
-        .btn-close:hover { background: #fff; color: #000; }
-
-        /* Mobile Adjustments */
-        @media (max-width: 768px) {
-            .roadmap-nav { flex-direction: column; }
-            .roadmap-line { display: none; }
-        }
-    </style>
 </head>
-<body>
 
-    <div id="dynamic-bg"></div>
-    <div class="scanline"></div>
+<body class="bg-gray-100">
 
-    <section id="home-screen">
-        <div class="name-wrapper">
-            <h1 class="main-name">AYUSH<br>RICH</h1>
-            <p style="letter-spacing: 10px; color: #666; font-size: 0.7rem;">ESTABLISHED 2026</p>
-        </div>
-        <div class="roadmap-nav">
-            <div class="roadmap-line"></div>
-            <div class="node active" onclick="enter('roots')"><span>ORIGINS</span></div>
-            <div class="node" onclick="enter('growth')"><span>SKILLS</span></div>
-            <div class="node" onclick="enter('future')"><span>LEGACY</span></div>
-        </div>
-    </section>
+<!-- HERO -->
+<section class="h-screen bg-cover bg-center flex items-center justify-center text-center text-white"
+style="background-image: url('https://images.unsplash.com/photo-1503676260728-1c00da094a0b');">
 
-    <div id="deep-dive">
-        <div class="content-card">
-            <h1 id="title-text">TITLE</h1>
-            <div class="points-grid" id="points-container">
-                </div>
-            <button class="btn-close" onclick="exit()">← TERMINATE VIEW</button>
-        </div>
+  <div class="bg-black/60 p-10 rounded-xl" data-aos="zoom-in">
+    <h1 class="text-5xl font-bold mb-4">Sagar Verma Coaching</h1>
+    <p class="text-lg mb-6">
+      "We don't just teach, we transform results.  
+      Boost your child's marks, rank & confidence."
+    </p>
+
+    <button onclick="scrollToSection()" 
+      class="bg-orange-500 px-6 py-3 rounded-lg text-lg hover:bg-orange-600">
+      Join Now
+    </button>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="py-16 text-center bg-white">
+  <h2 class="text-3xl font-bold mb-10" data-aos="fade-up">Why Choose Us?</h2>
+
+  <div class="grid md:grid-cols-3 gap-8 px-10">
+    <div class="p-6 shadow-lg rounded-lg" data-aos="fade-right">
+      <h3 class="text-xl font-semibold">Personal Attention</h3>
+      <p>Every student gets individual focus for better understanding.</p>
     </div>
 
-    <script>
-        const story = {
-            roots: {
-                title: "ORIGINS",
-                img: "https://images.unsplash.com/photo-1511447333015-45b65e60f6d5?q=80&w=2000",
-                color: "#ff0055",
-                data: [
-                    { h: "Early Visionary", p: "I started building logic when others were playing games. My roots are grounded in curiosity." },
-                    { h: "Family Heritage", p: "Born into a legacy of thinkers, I carry the torch of innovation in my DNA." }
-                ]
-            },
-            growth: {
-                title: "GROWTH",
-                img: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2000",
-                color: "#6366f1",
-                data: [
-                    { h: "The Architect", p: "Education wasn't just books; it was building scalable systems and mastering the digital craft." },
-                    { h: "Tech Evolution", p: "From basic scripts to complex AI models, my growth is exponential and unceasing." }
-                ]
-            },
-            future: {
-                title: "LEGACY",
-                img: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2000",
-                color: "#00f2ff",
-                data: [
-                    { h: "Global Impact", p: "I am surrounded by pioneers. My work is designed to outlive my era." },
-                    { h: "Next Gen", p: "Building tools that will empower the next billion creators. The future is coded by me." }
-                ]
-            }
-        };
+    <div class="p-6 shadow-lg rounded-lg" data-aos="fade-up">
+      <h3 class="text-xl font-semibold">Weekly Tests</h3>
+      <p>Regular tests to track performance & improvement.</p>
+    </div>
 
-        let autoIndex = 0;
-        const keys = Object.keys(story);
-        let playing = true;
+    <div class="p-6 shadow-lg rounded-lg" data-aos="fade-left">
+      <h3 class="text-xl font-semibold">Result Guarantee</h3>
+      <p>We ensure noticeable improvement in marks & rank.</p>
+    </div>
+  </div>
+</section>
 
-        function autoScroll() {
-            if(!playing) return;
-            const nodes = document.querySelectorAll('.node');
-            nodes.forEach(n => n.classList.remove('active'));
-            
-            nodes[autoIndex].classList.add('active');
-            const currentData = story[keys[autoIndex]];
-            
-            document.getElementById('dynamic-bg').style.setProperty('--bg-img', `url(${currentData.img})`);
-            document.documentElement.style.setProperty('--primary', currentData.color);
+<!-- FEES -->
+<section id="fees" class="py-16 bg-gray-200 text-center">
+  <h2 class="text-3xl font-bold mb-8" data-aos="fade-up">Fees Structure</h2>
 
-            autoIndex = (autoIndex + 1) % keys.length;
-        }
+  <div class="max-w-xl mx-auto bg-white shadow-lg rounded-lg p-6" data-aos="zoom-in">
+    <table class="w-full">
+      <tr class="border-b">
+        <th class="p-3">Class</th>
+        <th class="p-3">Fees</th>
+      </tr>
+      <tr class="border-b">
+        <td class="p-3">6-8</td>
+        <td class="p-3">₹800</td>
+      </tr>
+      <tr class="border-b">
+        <td class="p-3">9-10</td>
+        <td class="p-3">₹1200</td>
+      </tr>
+      <tr>
+        <td class="p-3">11-12</td>
+        <td class="p-3">₹1500</td>
+      </tr>
+    </table>
+  </div>
+</section>
 
-        let interval = setInterval(autoScroll, 3000);
+<!-- CONTACT -->
+<section class="py-16 bg-white text-center">
+  <h2 class="text-3xl font-bold mb-6" data-aos="fade-up">Contact Us</h2>
 
-        function enter(key) {
-            playing = false;
-            clearInterval(interval);
-            const d = story[key];
+  <p><strong>Name:</strong> Sagar Verma</p>
+  <p><strong>Phone:</strong> 9876543210</p>
+  <p><strong>Address:</strong> Your Coaching Address</p>
 
-            document.getElementById('title-text').innerText = d.title;
-            document.getElementById('dynamic-bg').style.setProperty('--bg-img', `url(${d.img})`);
-            document.documentElement.style.setProperty('--primary', d.color);
+  <div class="mt-6" data-aos="zoom-in">
+    <iframe 
+      class="w-full h-72 rounded-lg"
+      src="https://maps.google.com/maps?q=bhopal&t=&z=13&ie=UTF8&iwloc=&output=embed">
+    </iframe>
+  </div>
+</section>
 
-            const container = document.getElementById('points-container');
-            container.innerHTML = d.data.map(item => `
-                <div class="point-box">
-                    <h3>${item.h}</h3>
-                    <p>${item.p}</p>
-                </div>
-            `).join('');
+<!-- OPENING -->
+<section class="py-16 bg-orange-500 text-white text-center">
+  <h2 class="text-4xl font-bold mb-4" data-aos="fade-up">Grand Opening 🎉</h2>
 
-            document.getElementById('deep-dive').style.display = 'flex';
-            setTimeout(() => {
-                document.getElementById('deep-dive').classList.add('active');
-            }, 10);
-        }
+  <p class="text-lg" data-aos="fade-up">
+    Starting from <strong>1st April</strong>
+  </p>
 
-        function exit() {
-            document.getElementById('deep-dive').classList.remove('active');
-            setTimeout(() => {
-                document.getElementById('deep-dive').style.display = 'none';
-                playing = true;
-                interval = setInterval(autoScroll, 3000);
-            }, 800);
-        }
+  <p class="mt-4" data-aos="fade-up">
+    You are warmly invited to join and give your child a bright future.
+  </p>
+</section>
 
-        // Initialize BG
-        autoScroll();
-    </script>
+<!-- FOOTER -->
+<footer class="bg-black text-white text-center p-4">
+  © 2026 Sagar Verma Coaching Classes
+</footer>
+
+<!-- JS -->
+<script>
+  AOS.init();
+
+  function scrollToSection() {
+    document.getElementById("fees").scrollIntoView({ behavior: "smooth" });
+  }
+</script>
+
 </body>
 </html>
